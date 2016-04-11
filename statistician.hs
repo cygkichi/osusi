@@ -38,7 +38,8 @@ perser [date,score,hit,speed,miss,cose] =
 perser _ = undefined
 
 
+
 main = do
      inputStr <- readFile "./res.txt"
-     print $ map score$ allPerser inputStr
+     print $ map score $ filter (\s -> cose s == "h3")$ allPerser inputStr
 
