@@ -14,7 +14,7 @@ set grid   lc rgb "white"
 set border lc rgb "white"
 
 set obj 1 rect behind from screen 0,screen 0 to screen 1,screen 1 fc rgb '#111111' lw 0
-set term pngcairo size 800,400
+set term pngcairo size 1200,600
 set out 'Score-1.png'
 
 
