@@ -3,43 +3,79 @@ type Date = String
 type Cose = String
 
 data Score = Susi {
+                  count :: Int,
                   date  :: Date ,
                   score :: Int ,
                   hit   :: Int ,
                   speed :: Int ,
                   miss  :: Int ,
                   cose  :: Cose
-                  }
-           | Ety  {
-                  date  :: Date,
-                  theme :: String,
-                  socre :: Int,
-                  time  :: Int,
-                  hit   :: Int,
-                  miss  :: Int,
-                  wpm   :: Int,
-                  arate :: Int,
-                  weak  :: String
-                  }deriving(Show)
+                  }deriving (Show)
+
 
 allPerser :: String ->[Score]
 allPerser inputStr = map perser $
                      map words $
                      lines inputStr
 
+-- "1 2014..1/1 " #=> [1,"2014..1/1",1,1,"h2"]
 perser :: [String] -> Score
-perser [date,score,hit,speed,miss,cose] =
-    Susi date iscore ihit ispeed imiss cose
+perser [count,date,score,hit,speed,miss,cose] =
+    Susi icount date iscore ihit ispeed imiss cose
     where
+        icount = read count :: Int
         iscore = read score :: Int
         ihit   = read hit   :: Int
         ispeed = read speed :: Int
         imiss  = read miss  :: Int
 perser _ = undefined
 
+moveAverage :: Cose -> Int -> [Score] -> [(Int,Int)]
+moveAverage c n ss = mAve n $
+                     map (\s -> (count s,score s)) $
+                     filter (\s -> cose s == c) ss
+  where
+    mAve :: Int -> [(Int,Int)] -> [(Int,Int)]
+    mAve n iis
+      | length iis < n = []
+      | otherwise      = (fAve,sAve):(mAve n $ drop n iis)
+        where
+          fAve = flip div n $ sum $ map fst $ take n iis
+          sAve = flip div n $ sum $ map snd $ take n iis
+
+outData :: [(Int,Int)] -> IO ()
+outData []     = return ()
+outData (x:xs) = do
+        putStr   $ (\t -> show $ fst t) x
+        putStr   " "
+        putStrLn $ (\t -> show $ snd t) x
+        outData xs
+
 
 
 main = do
-     inputStr <- readFile "./res.txt"
-     print $ map score $ filter (\s -> cose s == "h3")$ allPerser inputStr
-
+    inputStr <- fmap lines $ readFile "./temp.res"
+    let scores  =  map (perser.words) inputStr
+    outData $ moveAverage "h3"  1 scores
+    putStr "\n\n"
+    outData $ moveAverage "h5"  1 scores
+    putStr "\n\n"
+    outData $ moveAverage "h10" 1 scores
+    putStr "\n\n"
+    outData $ moveAverage "s3"  1 scores
+    putStr "\n\n"
+    outData $ moveAverage "s5"  1 scores
+    putStr "\n\n"
+    outData $ moveAverage "s10" 1 scores
+    putStr "\n\n"
+    outData $ moveAverage "h3"  10 scores
+    putStr "\n\n"
+    outData $ moveAverage "h5"  10 scores
+    putStr "\n\n"
+    outData $ moveAverage "h10" 10 scores
+    putStr "\n\n"
+    outData $ moveAverage "s3"  10 scores
+    putStr "\n\n"
+    outData $ moveAverage "s5"  10 scores
+    putStr "\n\n"
+    outData $ moveAverage "s10" 10 scores

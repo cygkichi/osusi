@@ -18,6 +18,7 @@ paste tmp2 tmp1
 #mv /cygdrive/c/Users/Hiroto/Desktop/keylog.txt ./KeyLog3.`date +"%m%d%H%M"`.log
 
 rm tmp*
-
+cat -n res.txt | tr '\t' ' ' > temp.res
+runghc statistician.hs > graph.txt 
 
 
