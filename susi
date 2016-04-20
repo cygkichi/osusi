@@ -1,24 +1,5 @@
-
 #!/bin/sh
-
-#date +"%Y %m %d %H %M %S"
-
-echo '年(1) 月(2) 日(3) 時(4) 分(5) 秒(6)'
-echo '金(7) 文字(8) 秒速(9) ミス(10) ??(11)'
-
 
 echo `date +"%Y/%m/%d_%H:%M:%S"` ${1} ${2} ${3} ${4} ${5} >>res.txt
 
-grep -v '#' res.txt|awk '{print $4}'|cut -c 1-2|sort|uniq -c|awk '{printf($2"00\t");for(i=0;i<$1;i=i+3){printf("o")};printf("\n")}'>tmp1
-N=`wc tmp1|awk '{print $1}'`
-tail -n $N res.txt >tmp2
-
-paste tmp2 tmp1
-
-#mv /cygdrive/c/Users/Hiroto/Desktop/keylog.txt ./KeyLog3.`date +"%m%d%H%M"`.log
-
-rm tmp*
-cat -n res.txt | tr '\t' ' ' > temp.res
-runghc statistician.hs > graph.txt 
-
-
+tail res.txt

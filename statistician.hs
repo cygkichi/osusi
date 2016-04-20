@@ -30,6 +30,19 @@ perser [count,date,score,hit,speed,miss,cose] =
         imiss  = read miss  :: Int
 perser _ = undefined
 
+testData :: [(Int,Int)]
+testData = [(1,20),(2,30),(4,40),(5,50),(7,20)]
+
+movingAve :: Int -> [(Int,Int)] -> [(Int,Int)]
+movingAve n is
+    | length is < n = []
+    | otherwise     = (fstAve,sndAve): movingAve n (drop 1 is)
+    where
+    headDate = take n is
+    fstAve   = flip div n $ sum $ map fst headDate
+    sndAve   = flip div n $ sum $ map snd headDate
+
+
 moveAverage :: Cose -> Int -> [Score] -> [(Int,Int)]
 moveAverage c n ss = mAve n $
                      map (\s -> (count s,score s)) $
@@ -51,31 +64,34 @@ outData (x:xs) = do
         putStrLn $ (\t -> show $ snd t) x
         outData xs
 
-
+mNum :: Int
+mNum = 20
 
 main = do
     inputStr <- fmap lines $ readFile "./temp.res"
     let scores  =  map (perser.words) inputStr
-    outData $ moveAverage "h3"  1 scores
+    outData $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h3") scores
     putStr "\n\n"
-    outData $ moveAverage "h5"  1 scores
+    outData $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h5") scores
     putStr "\n\n"
-    outData $ moveAverage "h10" 1 scores
+    outData $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h10") scores
     putStr "\n\n"
-    outData $ moveAverage "s3"  1 scores
+    outData $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "s3") scores
     putStr "\n\n"
-    outData $ moveAverage "s5"  1 scores
+    outData $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "s5") scores
     putStr "\n\n"
-    outData $ moveAverage "s10" 1 scores
+    outData $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "s10") scores
     putStr "\n\n"
-    outData $ moveAverage "h3"  10 scores
+    outData $ movingAve mNum $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h3") scores
     putStr "\n\n"
-    outData $ moveAverage "h5"  10 scores
+    outData $ movingAve mNum $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h5") scores
     putStr "\n\n"
-    outData $ moveAverage "h10" 10 scores
+    outData $ movingAve mNum $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h10") scores
     putStr "\n\n"
-    outData $ moveAverage "s3"  10 scores
+    outData $ movingAve mNum $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "s3") scores
     putStr "\n\n"
-    outData $ moveAverage "s5"  10 scores
+    outData $ movingAve mNum $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "s5") scores
     putStr "\n\n"
-    outData $ moveAverage "s10" 10 scores
+    outData $ movingAve mNum $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "s10") scores
+    putStr "\n\n"
+
