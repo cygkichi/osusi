@@ -27,6 +27,6 @@ p res us 1:0 w l axes x1y2  lc rgb 'gray',\
   res us 1:(stringcolumn(6) eq "s10"?$2:NaN) w p lc rgb 'purple'
 
 
-set xrange ["2016/04/01":"2016/05/01"]
+set xrange ["2016/04/01":"2016/06/01"]
 set out 'Score-2.png'
 rep
