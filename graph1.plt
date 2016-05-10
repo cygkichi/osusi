@@ -20,3 +20,7 @@ p pf index 6  w l lw 10 lc rgb '#707000' ,\
   pf index 1 lt 2 lc rgb 'blue' ,\
   pf index 2 lt 3 lc rgb 'red' ,\
   pf index 5 lt 4 lc rgb 'green'
+
+set out 'Score-0-2.png'
+set xr [1500:]
+rep

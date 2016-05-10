@@ -65,7 +65,7 @@ outData (x:xs) = do
         outData xs
 
 mNum :: Int
-mNum = 30
+mNum = 20
 
 main = do
     inputStr <- fmap lines $ readFile "./temp.res"
