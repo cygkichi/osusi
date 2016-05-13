@@ -21,6 +21,17 @@ p pf index 6  w l lw 10 lc rgb '#707000' ,\
   pf index 2 lt 3 lc rgb 'red' ,\
   pf index 5 lt 4 lc rgb 'green'
 
+
+
 set out 'Score-0-2.png'
+set xr [1500:]
+rep
+
+set out 'Score-0-h3.png'
+set xr [1:]
+set yr [1000:4000]
+rep
+
+set out 'Score-0-2-h3.png'
 set xr [1500:]
 rep
