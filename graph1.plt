@@ -15,7 +15,6 @@ pf = 'graph.txt'
 p pf index 6  w l lw 10 lc rgb '#707000' ,\
   pf index 7  w l lw 10 lc rgb '#000070' ,\
   pf index 8  w l lw 10 lc rgb '#700000',\
-  pf index 9  w l lw 5 lc rgb '#007000',\
   pf index 0 lt 1 lc rgb 'yellow' ,\
   pf index 1 lt 2 lc rgb 'blue' ,\
   pf index 2 lt 3 lc rgb 'red' ,\

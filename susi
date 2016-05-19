@@ -3,3 +3,18 @@
 echo `date +"%Y/%m/%d_%H:%M:%S"` ${1} ${2} ${3} ${4} ${5} >>res.txt
 
 tail res.txt
+echo
+
+h10_30=$(cat res.txt|\
+  awk '$6=="h10"'|\
+  tail -n 30|\
+  awk 'BEGIN{printf("( ")}{printf("%d + ",$2)}END{printf(" 0 ) / 30\n")}'|\
+  bc)
+
+h10_10=$(cat res.txt|\
+  awk '$6=="h10"'|\
+  tail -n 10|\
+  awk 'BEGIN{printf("( ")}{printf("%d + ",$2)}END{printf(" 0 ) / 10\n")}'|\
+  bc)
+
+echo $h10_10 $h10_30
