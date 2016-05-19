@@ -2,6 +2,7 @@
 all: ## hoge
 	cat -n res.txt | tr '\t' ' ' > temp.res
 	runghc statistician.hs > graph.txt
+	runghc stat2.hs > graph-wma.txt
 	gnuplot *.plt
 
 more:
