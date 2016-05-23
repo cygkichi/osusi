@@ -65,8 +65,11 @@ outData (x:xs) = do
         putStrLn $ (\t -> show $ snd t) x
         outData xs
 
-mNum :: Int
-mNum = 30
+mNum1 :: Int
+mNum1 = 30
+
+mNum2 :: Int
+mNum2 = 100
 
 main = do
     inputStr <- fmap lines $ readFile "./temp.res"
@@ -77,22 +80,14 @@ main = do
     putStr "\n\n"
     outData $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h10") scores
     putStr "\n\n"
-    outData $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "s3") scores
+    outData $ movingAve mNum1 $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h3") scores
     putStr "\n\n"
-    outData $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "s5") scores
+    outData $ movingAve mNum1 $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h5") scores
     putStr "\n\n"
-    outData $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "s10") scores
+    outData $ movingAve mNum1 $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h10") scores
     putStr "\n\n"
-    outData $ movingAve mNum $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h3") scores
+    outData $ movingAve mNum2 $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h3") scores
     putStr "\n\n"
-    outData $ movingAve mNum $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h5") scores
+    outData $ movingAve mNum2 $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h5") scores
     putStr "\n\n"
-    outData $ movingAve mNum $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h10") scores
-    putStr "\n\n"
-    outData $ movingAve mNum $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "s3") scores
-    putStr "\n\n"
-    outData $ movingAve mNum $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "s5") scores
-    putStr "\n\n"
-    outData $ movingAve mNum $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "s10") scores
-    putStr "\n\n"
-
+    outData $ movingAve mNum2 $ map (\s -> (count s, score s)) $ filter (\s -> cose s == "h10") scores
