@@ -30,7 +30,9 @@ p res us 1:0 w l axes x1y2  lc rgb 'gray',\
   res us 1:(stringcolumn(6) eq "h10"?$2:NaN) w p lc rgb 'red'    lt 6 ps 3 ,\
   res us 1:(stringcolumn(6) eq "s10"?$2:NaN) w p lc rgb 'red'    lt 6
 
-
+sum10=-1
+sum5=-1
+sum3=-1
 set xrange ["2016/04/01":"2016/06/01"]
 set out 'Score-2.png'
 rep

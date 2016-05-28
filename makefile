@@ -4,6 +4,7 @@ all: ## hoge
 	runghc statistician.hs > graph.txt
 	runghc stat2.hs > graph-wma.txt
 	gnuplot *.plt
+	gnuplot hist*.plt
 
 more:
 	runghc xDate.hs > xDate.txt

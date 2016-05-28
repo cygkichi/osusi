@@ -9,3 +9,5 @@
 
 ![ScoreResult-month](Score-2.png)
 
+![ScoreResult-hist](hist-0.png)
+
