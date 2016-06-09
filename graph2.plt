@@ -33,6 +33,6 @@ p res us 1:0 w l axes x1y2  lc rgb 'gray',\
 sum10=-1
 sum5=-1
 sum3=-1
-set xrange ["2016/04/01":"2016/06/01"]
+set xrange ["2016/04/01":"2016/07/01"]
 set out 'Score-2.png'
 rep
