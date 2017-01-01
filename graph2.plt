@@ -4,7 +4,7 @@ res='res.txt'
 
 set xdata time
 set timefmt "%Y/%m/%d_%H:%M:%S"
-set xrange ["2014/12/01":"2017/01/01"]
+set xrange ["2014/12/01":"2017/04/01"]
 
 
 set y2tics
@@ -34,6 +34,6 @@ sum10=-1
 sum5=-1
 sum3=-1
 
-set xrange ["2016/04/01":"2017/01/01"]
+set xrange ["2016/04/01":"2017/04/01"]
 set out 'Score-2.png'
 rep
