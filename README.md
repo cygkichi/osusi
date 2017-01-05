@@ -1,5 +1,6 @@
 # osusi
 
+![ScoreQ1-4Result](Score-QScore.png)
 
 ![ScoreResult](Score-0.png)
 
