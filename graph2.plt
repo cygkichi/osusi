@@ -4,7 +4,7 @@ res='res.txt'
 
 set xdata time
 set timefmt "%Y/%m/%d_%H:%M:%S"
-set xrange ["2014/12/01":"2017/04/01"]
+set xrange ["2014/12/01":"2017/08/01"]
 
 
 set y2tics

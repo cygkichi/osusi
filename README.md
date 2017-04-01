@@ -1,4 +1,7 @@
 # osusi
+![Score17-1](Score17-1.png)
+
+![Score17-2](Score17-2.png)
 
 ![ScoreQ1-4Result](Score-QScore.png)
 
