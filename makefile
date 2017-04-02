@@ -1,6 +1,7 @@
 
 all: ## hoge
 	cat -n res.txt | tr '\t' ' ' > temp.res
+	cat res.txt | tr ' ' ',' > res.csv
 	python3 susi.py > graph17.txt
 	runghc statistician.hs > graph.txt
 	runghc stat2.hs > graph-wma.txt
