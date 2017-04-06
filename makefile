@@ -7,7 +7,6 @@ all: ## hoge
 	runghc stat2.hs > graph-wma.txt
 	zsh ./QScore.sh
 	gnuplot *.plt
-	gnuplot hist*.plt
 
 more:
 	runghc xDate.hs > xDate.txt
