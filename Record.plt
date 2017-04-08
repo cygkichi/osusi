@@ -3,9 +3,11 @@ reset
 f='Record.txt'
 
 set xdata time
-set timefmt "%Y/%m/%d_%H:%M:%S"
-set xrange ["2014/11/01":"2017/08/01"]
 
+set timefmt "%Y/%m/%d_%H:%M:%S"
+set format x "%y/%m"
+set xtic rotate by -45
+set xrange ["2014/11/01":"2017/08/01"]
 
 unset key
 set grid   lc rgb "white"
