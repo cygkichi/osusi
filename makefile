@@ -1,6 +1,6 @@
 
 all: ## hoge
-	cat -n res.txt | tr '\t' ' '|sed -e "s/pana//g" > temp.res
+	cat -n res.txt | tr '\t' ' '|sed -e "s/pana//g" -e "s/panta//g" > temp.res
 	cat res.txt | tr ' ' ',' > res.csv
 	python3 susi.py > graph17.txt
 	runghc statistician.hs > graph.txt

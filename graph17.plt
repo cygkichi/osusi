@@ -176,7 +176,7 @@ p f us 1:(0):($5*6.6)                      with filledcurve lc rgb "#404000",\
   f us 1:6  w l lc rgb 'yellow',\
   f us 1:12 w l lc rgb 'blue',\
   f us 1:18 w l lc rgb 'red'
-set xrange [1500:]
+set xrange [2300:]
 set out 'Score17-2.png'
 rep
 
